@@ -149,4 +149,5 @@ Automated-EBS-Snapshot-Backup-using-AWS-Lambda-SNS/
 
 📬 Output
 Snapshots appear in EC2 → Snapshots
+
 Email notification from SNS showing snapshot IDs
