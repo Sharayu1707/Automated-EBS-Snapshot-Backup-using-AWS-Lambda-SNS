@@ -22,6 +22,7 @@ Flow:
                                                    ↳ [Email Notification via SNS]
 
 
+
 ⚙️ Technologies Used
 AWS EC2
 AWS Auto Scaling Group
@@ -52,7 +53,10 @@ Value: EBSBackupASG
 ![Architecture](images/img-1.png)
 
 
+
 ![Architecture](images/img-2.png)
+
+
 
 2. Create Auto Scaling Group (ASG)
 Use the launch template created above.
@@ -60,6 +64,7 @@ Configure desired capacity, subnets, and scaling policies.
 Add Lifecycle Hooks:
 BackupOnLaunch (for instance launch events)
 CleanupOnTerminate (optional for deleting old snapshots)
+
 
 ![Architecture](images/img-6.png)    
 
@@ -71,9 +76,15 @@ Add an Email Subscription and confirm it from your inbox.
 
 ![Architecture](images/img-3.png)    
 
+
+
 ![Architecture](images/img-4.png)
 
+
+
 ![Architecture](images/img-5.png)    
+
+
 
 
 4. Create IAM Role for Lambda
@@ -86,7 +97,12 @@ CloudWatchLogsFullAccess
 
 Name the role: LambdaEBSBackupASGRole
 
+
+
 ![Architecture](images/img-7.png) 
+
+
+
 
 5. Create Lambda Function
 Name: ASG_EBS_Backup
@@ -95,7 +111,12 @@ Role: LambdaEBSBackupASGRole
 Environment Variable:
 SNS_TOPIC_ARN = your SNS topic ARN
 
-![Architecture](images/img-8.png) 
+
+
+![Architecture](images/img-8.png)
+
+
+
 
 6. Connect ASG with Lambda
 Go to Auto Scaling Group → Lifecycle Hooks
@@ -113,7 +134,11 @@ Lambda will trigger automatically.
 EBS snapshots will be created.
 An email notification will be sent to your SNS subscriber.
 
+
+
 ![Architecture](images/img-9.png) 
+
+
 
 🧩 Folder Structure
 Automated-EBS-Snapshot-Backup-using-AWS-Lambda-SNS/
